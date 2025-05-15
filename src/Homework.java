@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Homework {
     public static void main(String[] args) {
         task1();
@@ -25,7 +27,7 @@ public class Homework {
     }
 
     public static void task2() {
-        recommendAppVersion((byte) 1, (short) 2014);
+        recommendAppVersion((byte) 1, (short) 2025);
     }
 
     /**
@@ -34,13 +36,14 @@ public class Homework {
      * @param clientDeviceYear год выпуска устройства
      */
     public static void recommendAppVersion(byte clientOS, short clientDeviceYear) {
-        if (clientOS == 0 && clientDeviceYear < 2015) {
+        int currentYear = LocalDate.now().getYear();
+        if (clientOS == 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (clientOS == 0 && clientDeviceYear >= 2015) {
+        } else if (clientOS == 0 && clientDeviceYear >= currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else if (clientOS == 1 && clientDeviceYear < 2015) {
+        } else if (clientOS == 1 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else if (clientOS == 1 && clientDeviceYear >= 2015) {
+        } else if (clientOS == 1 && clientDeviceYear >= currentYear) {
             System.out.println("Установите версию приложения для Android по ссылке");
         }
     }
